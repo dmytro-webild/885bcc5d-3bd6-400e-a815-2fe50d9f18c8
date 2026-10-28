@@ -11,6 +11,10 @@ export default function Layout() {
     {
       "name": "Home",
       "href": "/"
+    },
+    {
+      "name": "About",
+      "href": "/about"
     }
   ];
 
@@ -20,6 +24,10 @@ export default function Layout() {
       <SectionErrorBoundary name="navbar">
         <NavbarFullscreenStatic
       logo="Grand Hotel"
+      secondaryButton={{
+        text: "About",
+        href: "/about",
+      }}
       ctaButton={{
         text: "Book Now",
         href: "#",

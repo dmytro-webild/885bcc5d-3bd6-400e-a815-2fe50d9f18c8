@@ -20,7 +20,7 @@ export default function HomePage() {
         text: "Reserve Your Stay", href: "#"}}
       secondaryButton={{
         text: "View Suites", href: "#rooms"}}
-      imageSrc="https://images.pexels.com/photos/27626174/pexels-photo-27626174.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+      imageSrc="https://storage.googleapis.com/webild/users/user_3AOVA6jYM6jYkWRWwEyFUGAp7VN/uploaded-1793221833410-ngybmrmm.jpg"
       textAnimation="fade-blur"
     />
     </SectionErrorBoundary>

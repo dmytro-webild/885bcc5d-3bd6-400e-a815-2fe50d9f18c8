@@ -4,16 +4,16 @@
 @import "./styles/animations.css";
 
 :root {
-  /* Fresh coastal mint & emerald light theme */
-  --background: #f4f7f5;
+  /* Modern sapphire & ocean blue light theme */
+  --background: #f0f5fa;
   --card: #ffffff;
-  --foreground: #0f2922;
-  --primary-cta: #0d9488;
+  --foreground: #0b192e;
+  --primary-cta: #1d4ed8;
   --primary-cta-text: #ffffff;
   --secondary-cta: #ffffff;
-  --secondary-cta-text: #0d9488;
-  --accent: #14b8a6;
-  --background-accent: #ccfbf1;
+  --secondary-cta-text: #1d4ed8;
+  --accent: #2563eb;
+  --background-accent: #dbeafe;
 
   /* @layout/border-radius/rounded */
   --radius: 0.75rem;
@@ -165,7 +165,7 @@ h6 {
 
 .primary-button {
   /* WEBILD_PRIMARY_BUTTON */
-  background: linear-gradient(135deg, #0d9488 0%, #059669 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
   color: var(--color-primary-cta-text);
   box-shadow: 0 4px 14px 0 color-mix(in srgb, var(--color-primary-cta) 30%, transparent);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);

@@ -14,7 +14,7 @@ export default function HomePage() {
     <SectionErrorBoundary name="hero">
           <HeroSplit
       tag="Experience Excellence"
-      title="A Sanctuary of Timeless Luxury"
+      title="A Sanctuary of Timeless Luxury in Miami"
       description="Discover unparalleled comfort and world-class service in the heart of the city. Your ultimate getaway awaits."
       primaryButton={{
         text: "Reserve Your Stay", href: "#"}}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { cls } from "@/lib/utils";
 import Button from "@/components/ui/Button";
+import { useButtonClick } from "@/hooks/useButtonClick";
 
 interface NavbarFullscreenStaticProps {
   logo: string;
@@ -9,17 +10,51 @@ interface NavbarFullscreenStaticProps {
   ctaButton: { text: string; href: string };
 }
 
-const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, onClose: () => void) => {
-  if (href.startsWith("#")) {
-    e.preventDefault();
-    const element = document.getElementById(href.slice(1));
-    element?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-  onClose();
+const NavItemLink = ({
+  item,
+  index,
+  total,
+  menuOpen,
+  onClose,
+}: {
+  item: { name: string; href: string };
+  index: number;
+  total: number;
+  menuOpen: boolean;
+  onClose: () => void;
+}) => {
+  const handleClick = useButtonClick(item.href, onClose);
+
+  return (
+    <div className="overflow-hidden">
+      <a
+        href={item.href}
+        onClick={handleClick}
+        className="group flex items-center gap-4 py-4 cursor-pointer"
+        style={{
+          transform: menuOpen ? "translateY(0%)" : "translateY(100%)",
+          transition: "transform 0.5s cubic-bezier(0.7, 0, 0.3, 1)",
+          transitionDelay: menuOpen
+            ? `${0.3 + index * 0.05}s`
+            : `${(total - 1 - index) * 0.05}s`,
+        }}
+      >
+        <span className="text-7xl md:text-9xl font-medium text-background group-hover:ml-4 transition-[margin] duration-300">
+          {item.name}
+        </span>
+        <ArrowUpRight
+          className="h-(--text-7xl) md:h-(--text-9xl) w-auto text-background group-hover:rotate-45 group-hover:mr-4 transition-all duration-300"
+          strokeWidth={1.5}
+        />
+      </a>
+      {index < total - 1 && <div className="h-px bg-background/20" />}
+    </div>
+  );
 };
 
 const NavbarFullscreenStatic = ({ logo, navItems, ctaButton }: NavbarFullscreenStaticProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const handleLogoClick = useButtonClick("/", () => setMenuOpen(false));
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -45,7 +80,8 @@ const NavbarFullscreenStatic = ({ logo, navItems, ctaButton }: NavbarFullscreenS
       <div className="absolute z-10 top-5 left-1/2 -translate-x-1/2 flex items-center justify-between w-content-width pointer-events-auto">
         <a
           href="/"
-          className="text-xl font-semibold tracking-tight text-foreground hover:opacity-80 transition-opacity"
+          onClick={handleLogoClick}
+          className="text-xl font-semibold tracking-tight text-foreground hover:opacity-80 transition-opacity cursor-pointer"
         >
           {logo}
         </a>
@@ -78,36 +114,19 @@ const NavbarFullscreenStatic = ({ logo, navItems, ctaButton }: NavbarFullscreenS
         style={{
           clipPath: menuOpen
             ? "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
-            : "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)"
+            : "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
         }}
       >
         <div className="flex flex-col items-center">
           {navItems.map((item, index) => (
-            <div key={item.name} className="overflow-hidden">
-              <a
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.href, () => setMenuOpen(false))}
-                className="group flex items-center gap-4 py-4"
-                style={{
-                  transform: menuOpen ? "translateY(0%)" : "translateY(100%)",
-                  transition: "transform 0.5s cubic-bezier(0.7, 0, 0.3, 1)",
-                  transitionDelay: menuOpen
-                    ? `${0.3 + index * 0.05}s`
-                    : `${(navItems.length - 1 - index) * 0.05}s`
-                }}
-              >
-                <span className="text-7xl md:text-9xl font-medium text-background group-hover:ml-4 transition-[margin] duration-300">
-                  {item.name}
-                </span>
-                <ArrowUpRight
-                  className="h-(--text-7xl) md:h-(--text-9xl) w-auto text-background group-hover:rotate-45 group-hover:mr-4 transition-all duration-300"
-                  strokeWidth={1.5}
-                />
-              </a>
-              {index < navItems.length - 1 && (
-                <div className="h-px bg-background/20" />
-              )}
-            </div>
+            <NavItemLink
+              key={item.name}
+              item={item}
+              index={index}
+              total={navItems.length}
+              menuOpen={menuOpen}
+              onClose={() => setMenuOpen(false)}
+            />
           ))}
         </div>
       </div>

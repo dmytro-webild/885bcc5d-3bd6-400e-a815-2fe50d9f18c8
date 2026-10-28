@@ -45,7 +45,7 @@ const NavbarFullscreenStatic = ({ logo, navItems, ctaButton }: NavbarFullscreenS
       <div className="absolute z-10 top-5 left-1/2 -translate-x-1/2 flex items-center justify-between w-content-width pointer-events-auto">
         <a
           href="/"
-          className="text-xl font-medium text-background"
+          className="text-xl font-semibold tracking-tight text-foreground hover:opacity-80 transition-opacity"
         >
           {logo}
         </a>

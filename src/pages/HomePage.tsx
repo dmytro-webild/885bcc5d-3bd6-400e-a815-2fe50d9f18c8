@@ -3,7 +3,7 @@ import ContactCta from '@/components/sections/contact/ContactCta';
 import FaqTabbedAccordion from '@/components/sections/faq/FaqTabbedAccordion';
 import FeaturesComparison from '@/components/sections/features/FeaturesComparison';
 import FeaturesImageBento from '@/components/sections/features/FeaturesImageBento';
-import HeroSplitVerticalMarquee from '@/components/sections/hero/HeroSplitVerticalMarquee';
+import HeroSplit from '@/components/sections/hero/HeroSplit';
 import TestimonialRatingCards from '@/components/sections/testimonial/TestimonialRatingCards';
 import SectionErrorBoundary from "@/components/ui/SectionErrorBoundary";
 
@@ -12,30 +12,15 @@ export default function HomePage() {
     <>
   <div id="hero" data-section="hero">
     <SectionErrorBoundary name="hero">
-          <HeroSplitVerticalMarquee
+          <HeroSplit
       tag="Experience Excellence"
       title="A Sanctuary of Timeless Luxury"
       description="Discover unparalleled comfort and world-class service in the heart of the city. Your ultimate getaway awaits."
       primaryButton={{
-        text: "Reserve Your Stay",        href: "#"}}
+        text: "Reserve Your Stay", href: "#"}}
       secondaryButton={{
-        text: "View Suites",        href: "#rooms"}}
-      leftItems={[
-        { imageSrc: "https://images.pexels.com/photos/27626174/pexels-photo-27626174.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
-        { imageSrc: "https://images.pexels.com/photos/7031704/pexels-photo-7031704.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
-        { imageSrc: "https://images.pexels.com/photos/7365280/pexels-photo-7365280.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
-        { imageSrc: "https://images.pexels.com/photos/10445927/pexels-photo-10445927.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
-        { imageSrc: "https://images.pexels.com/photos/36417658/pexels-photo-36417658.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
-        { imageSrc: "https://images.pexels.com/photos/17640383/pexels-photo-17640383.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
-      ]}
-      rightItems={[
-        { imageSrc: "https://images.pexels.com/photos/15551933/pexels-photo-15551933.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
-        { imageSrc: "https://images.pexels.com/photos/9400917/pexels-photo-9400917.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
-        { imageSrc: "https://images.pexels.com/photos/28824386/pexels-photo-28824386.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
-        { imageSrc: "https://images.pexels.com/photos/20184729/pexels-photo-20184729.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
-        { imageSrc: "https://images.pexels.com/photos/7821349/pexels-photo-7821349.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
-        { imageSrc: "https://images.pexels.com/photos/1004524/pexels-photo-1004524.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
-      ]}
+        text: "View Suites", href: "#rooms"}}
+      imageSrc="https://images.pexels.com/photos/27626174/pexels-photo-27626174.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
       textAnimation="fade-blur"
     />
     </SectionErrorBoundary>

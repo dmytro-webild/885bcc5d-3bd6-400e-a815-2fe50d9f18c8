@@ -8,6 +8,7 @@ interface NavbarFullscreenStaticProps {
   logo: string;
   navItems: { name: string; href: string }[];
   ctaButton: { text: string; href: string };
+  secondaryButton?: { text: string; href: string };
 }
 
 const NavItemLink = ({
@@ -52,7 +53,7 @@ const NavItemLink = ({
   );
 };
 
-const NavbarFullscreenStatic = ({ logo, navItems, ctaButton }: NavbarFullscreenStaticProps) => {
+const NavbarFullscreenStatic = ({ logo, navItems, ctaButton, secondaryButton }: NavbarFullscreenStaticProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const handleLogoClick = useButtonClick("/", () => setMenuOpen(false));
 
@@ -87,6 +88,9 @@ const NavbarFullscreenStatic = ({ logo, navItems, ctaButton }: NavbarFullscreenS
         </a>
 
         <div className="flex items-center gap-2 xl:gap-3 2xl:gap-4">
+          {secondaryButton && (
+            <Button text={secondaryButton.text} href={secondaryButton.href} variant="secondary" animate={false} />
+          )}
           <Button text={ctaButton.text} href={ctaButton.href} variant="primary" animate={false} />
 
           <div

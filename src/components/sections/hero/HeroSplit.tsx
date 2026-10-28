@@ -1,8 +1,8 @@
 import Button from "@/components/ui/Button";
 import HeroBackgroundSlot from "@/components/ui/HeroBackgroundSlot";
 import TextAnimation from "@/components/ui/TextAnimation";
-import ImageOrVideo from "@/components/ui/ImageOrVideo";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import ThreeDHeroCard from "@/components/ui/ThreeDHeroCard";
 
 type HeroSplitProps = {
   tag: string;
@@ -56,8 +56,8 @@ const HeroSplit = ({
           </div>
         </div>
 
-        <ScrollReveal variant="slide-up" delay={0.2} className="w-full md:w-1/2 h-100 md:h-[65vh] md:max-h-[75svh] p-2 xl:p-3 2xl:p-4 card rounded overflow-hidden">
-          <ImageOrVideo imageSrc={imageSrc} videoSrc={videoSrc} />
+        <ScrollReveal variant="slide-up" delay={0.2} className="w-full md:w-1/2 h-100 md:h-[65vh] md:max-h-[75svh]">
+          <ThreeDHeroCard imageSrc={imageSrc} videoSrc={videoSrc} />
         </ScrollReveal>
       </div>
     </section>
